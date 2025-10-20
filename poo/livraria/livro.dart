@@ -1,9 +1,9 @@
 import 'itemLivraria.dart';
 
 class Livro extends Itemlivraria {
-  int numeroDePaginas = 0;
+  String numeroDePaginas = '';
 
-  Livro(String titulo, String autor, int numeroDePaginas)
+  Livro(String titulo, String autor, String numeroDePaginas)
     : super(titulo, autor) {
     this.numeroDePaginas = numeroDePaginas;
   }
@@ -13,6 +13,6 @@ class Livro extends Itemlivraria {
     return 
       '\nLivro: $titulo' + 
       '\nAutor: $autor' + 
-      '\nNúmero de páginas: ${numeroDePaginas.toString()}';
+      '\nNúmero de páginas: ${numeroDePaginas}';
   }
 }
