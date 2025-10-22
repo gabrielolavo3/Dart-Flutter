@@ -1,15 +1,23 @@
-import 'prato.dart';
+import 'produto.dart';
 
-class Pizza extends Prato {
+class Pizza extends Produto {
   String molho = '';
   String recheio = '';
-  String bordar = '';  
+  String borda = '';
 
-  Pizza(String nome, double preco, int quantidade, this.molho, this.recheio, this.bordar) : super(nome, preco, quantidade) {    
-  }
+  Pizza(String nomeProduto, double preco,  int quantidade, this.molho, this.recheio, this.borda) : super(nomeProduto, preco, quantidade);
 
   @override
   double calcularPreco() {
     return quantidade * preco;
+  }
+
+  @override
+  String toString() {
+    return 
+      '\nNome do produto: $nomeProduto' +
+      '\nMolho: $molho' +
+      '\nRecheio: $recheio' +
+      '\nBorda: $borda';
   }
 }

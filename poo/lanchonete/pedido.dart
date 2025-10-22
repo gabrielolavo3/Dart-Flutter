@@ -1,43 +1,40 @@
-import 'prato.dart';
+import 'produto.dart';
 
 class Pedido {
-  String _nomeCliente = '';
-  double _taxaDeServico = 0;
-  List<Prato> _itensConsumidos = [];
+  String nomeCliente = '';
+  double taxaDeServico = 0;
+  List<Produto> itensConsumidos = [];
 
-  Pedido(this._nomeCliente, this._taxaDeServico, this._itensConsumidos);
+  Pedido(this.nomeCliente, {this.taxaDeServico = 0.1});
 
-  set setNomeCliente(String nome) {
-    this._nomeCliente = nome;
+  void adicionarItem(Produto produto) {
+    itensConsumidos.add(produto);
   }
 
-  get getNomeCliente {
-    return this._nomeCliente;
-  }
-
-  set setTaxaDeServico(double taxa) {
-    this._taxaDeServico = taxa;
-  }
-
-  get getTaxaDeServico {
-    return this._taxaDeServico;
-  }
-
-  set setItensConsumidos(List<Prato> itens) {
-    this._itensConsumidos = itens;
-  }
-
-  get getItensConsumidos {
-    return this._itensConsumidos;
-  }
-
-  double precoFinal() {
+  double calcularPrecoTotal() {
     double soma = 0;
 
-    for (var index in _itensConsumidos) {
-      soma += index.getPreco;
+    for (var index in itensConsumidos) {
+      soma += index.calcularPreco();
     }
 
-    return soma * _taxaDeServico;
+    return soma * taxaDeServico;
+  }
+
+  double calcularTroco(double valorRecebido) {
+    double troco = calcularPrecoTotal();
+    troco = valorRecebido - troco;
+    return troco;
+  }
+
+  void exibirNotaFiscal() {    
+    print('Nome do cliente: $nomeCliente\n');
+    
+    for (var index in itensConsumidos) {
+      print(index.toString());
+    }
+
+    print('Valor total da nota: R\$ ${calcularPrecoTotal().toString()}');
+    // print('Troco: R\$ ${calcularTroco(valorRecebido).toStringAsFixed(2)}');
   }
 }
