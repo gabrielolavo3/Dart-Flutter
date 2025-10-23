@@ -1,21 +1,22 @@
 abstract class Produto {
   String nomeProduto = '';
-  double preco = 0;
+  double _preco = 0; //Atributo privado
   int quantidade = 0;  
 
-  Produto(String nomeProduto, double preco, int quantidade) {    
-    this.nomeProduto = nomeProduto;
-    this.preco = preco;
-    this.quantidade = quantidade;    
+  Produto(String nomeProduto) {    
+    this.nomeProduto = nomeProduto;    
   }
 
-  // set setPreco(double preco) {
-  //   this._preco = preco;
-  // }
+  // Sobrecarga de construtor do Dart. Usa-se o Construtor Nomeado para diferenciação
+  Produto.quantidade(this.quantidade);
 
-  // get getPreco {
-  //   return this._preco;
-  // }
+  set setPreco(double preco) {
+    this._preco = preco;
+  }
+
+  get getPreco {
+    return this._preco;
+  }
 
   double calcularPreco();
 

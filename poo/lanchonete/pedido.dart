@@ -13,7 +13,6 @@ class Pedido {
 
   double calcularPrecoTotal() {
     double soma = 0;
-
     for (var index in itensConsumidos) {
       soma += index.calcularPreco();
     }
@@ -27,14 +26,16 @@ class Pedido {
     return troco;
   }
 
-  void exibirNotaFiscal() {    
+  void exibirNotaFiscal(double valorRecebido) {
+    print('=========NOTA FISCAL=========');
     print('Nome do cliente: $nomeCliente\n');
     
+    print('\n======PRODUTOS COMPRADOS======');
     for (var index in itensConsumidos) {
       print(index.toString());
     }
 
-    print('Valor total da nota: R\$ ${calcularPrecoTotal().toString()}');
-    // print('Troco: R\$ ${calcularTroco(valorRecebido).toStringAsFixed(2)}');
+    print('Valor total: R\$ ${calcularPrecoTotal().toString()}');
+    print('Troco: R\$ ${calcularTroco(valorRecebido).toStringAsFixed(2)}');
   }
 }

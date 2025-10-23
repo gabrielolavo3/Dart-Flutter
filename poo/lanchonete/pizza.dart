@@ -5,11 +5,13 @@ class Pizza extends Produto {
   String recheio = '';
   String borda = '';
 
-  Pizza(String nomeProduto, double preco,  int quantidade, this.molho, this.recheio, this.borda) : super(nomeProduto, preco, quantidade);
+  Pizza(String nomeProduto, this.molho, this.recheio, this.borda) : super(nomeProduto);
 
   @override
   double calcularPreco() {
-    return quantidade * preco;
+    // Pode-se chamar diretamente o set e get porquê a classe herdar os métodos da superclasse
+    setPreco = this.borda.toLowerCase() == 'recheada' ? 20 : 18;    
+    return quantidade * double.parse(getPreco);
   }
 
   @override

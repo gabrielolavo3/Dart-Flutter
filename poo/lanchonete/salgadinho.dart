@@ -5,11 +5,12 @@ class Salgadinho extends Produto {
   String massa = '';
   String recheio = '';
 
-  Salgadinho(String nomeProduto, double preco, int quantidade, this.tipo, this.massa, this.recheio) : super(nomeProduto, preco, quantidade);
+  Salgadinho(String nomeProduto, this.tipo, this.massa, this.recheio) : super(nomeProduto);
 
   @override
   double calcularPreco() {
-    return quantidade * preco;
+    setPreco = this.tipo.toLowerCase() == 'frito' ? 20 : 18;    
+    return quantidade * double.parse(getPreco);    
   }
 
   @override
