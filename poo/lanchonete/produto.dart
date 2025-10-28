@@ -7,8 +7,8 @@ abstract class Produto {
     this.nomeProduto = nomeProduto;    
   }
 
-  // Sobrecarga de construtor do Dart. Usa-se o Construtor Nomeado para diferenciação
-  Produto.quantidade(this.quantidade);
+  /* Sobrecarga de construtor do Dart. Usa-se o Construtor Nomeado para diferenciação
+  Produto.quantidade(this.quantidade); */
 
   set setPreco(double preco) {
     this._preco = preco;

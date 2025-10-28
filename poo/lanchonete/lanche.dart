@@ -9,16 +9,14 @@ class Lanche extends Produto{
 
   @override
   double calcularPreco() {
-    setPreco = this.pao.toLowerCase() == 'integral' ? 15 : 12;    
-    return quantidade * double.parse(getPreco);
+    setPreco = this.pao.toLowerCase() == 'integral' ? 15 : 12;  
+    double precoProduto = getPreco;
+    return quantidade * precoProduto;    
   }
 
   @override
   String toString() {
     return 
-      '\nNome do produto: $nomeProduto' +
-      '\nPão: $pao' +
-      '\nRecheio: $recheio' +
-      '\nMolho: $molho';
+      '\nLanche: $nomeProduto (pão: $pao, recheio: $recheio, molho: $molho)';
   }
 }

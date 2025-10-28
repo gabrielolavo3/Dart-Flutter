@@ -17,25 +17,28 @@ class Pedido {
       soma += index.calcularPreco();
     }
 
-    return soma * taxaDeServico;
+    return soma + (soma * taxaDeServico);
   }
 
   double calcularTroco(double valorRecebido) {
     double troco = calcularPrecoTotal();
     troco = valorRecebido - troco;
+
+    troco = troco <= 0 ? 0 : troco;
     return troco;
   }
 
   void exibirNotaFiscal(double valorRecebido) {
-    print('=========NOTA FISCAL=========');
-    print('Nome do cliente: $nomeCliente\n');
+    print('\n========= NOTA FISCAL =========');
+    print('\nNome do cliente: $nomeCliente');
     
-    print('\n======PRODUTOS COMPRADOS======');
+    print('\n--- Produtos Comprados ---');
     for (var index in itensConsumidos) {
       print(index.toString());
     }
 
-    print('Valor total: R\$ ${calcularPrecoTotal().toString()}');
+    print('\nPreço final: R\$ ${calcularPrecoTotal().toString()}');
+    print('Valor recebido: R\$ ${valorRecebido.toStringAsFixed(2)}');
     print('Troco: R\$ ${calcularTroco(valorRecebido).toStringAsFixed(2)}');
   }
 }

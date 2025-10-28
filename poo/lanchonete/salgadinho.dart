@@ -9,16 +9,14 @@ class Salgadinho extends Produto {
 
   @override
   double calcularPreco() {
-    setPreco = this.tipo.toLowerCase() == 'frito' ? 20 : 18;    
-    return quantidade * double.parse(getPreco);    
+    setPreco = this.tipo.toLowerCase() == 'frito' ? 20 : 18;      
+    double precoProduto = getPreco;
+    return quantidade * precoProduto; 
   }
 
   @override
   String toString() {
     return 
-      '\nNome do produto: $nomeProduto' +
-      '\nTipo: $tipo' +
-      '\nRecheio: $recheio' +
-      '\nMassa: $massa';
+      '\nSalgadinho: $nomeProduto (tipo: $tipo, recheio: $recheio, massa: $massa)';
   }
 }
